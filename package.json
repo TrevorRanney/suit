@@ -1,14 +1,13 @@
 {
   "name": "server-suit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "server-suit.js",
   "scripts": {
     "test": "jasmine"
   },
   "author": "Trevor Ranney",
-  "license": "None",
   "devDependencies": {
-    "jasmine": "^3.3.0"
+    "jasmine": "^3.3.1"
   }
 }

@@ -2,7 +2,6 @@
 var Suit = require('../../server-suit');
 var http = require('http');
 var net = require('net');
-var Server = net.Server;
 
 describe( "The server", () => {
 
@@ -50,7 +49,7 @@ describe( "The server", () => {
         expect(this.serverBwasHit).toBe(true);
     });
 
-    it("does not crash and does not response when request for host we do not know about", () => {
+    it("does not crash and does not respond when request is for a host we do not know about", () => {
         var requestA = {};
         requestA.headers = {};
         requestA.headers.host = 'unknownhost';
@@ -60,6 +59,7 @@ describe( "The server", () => {
     });
 
     it("starts an http server", () => {
+        this.server.httpPort = 99;
         spyOn(http, 'createServer').and.callThrough();
         this.server.start();
         expect(http.createServer).toHaveBeenCalled();
