@@ -1,12 +1,17 @@
 {
   "name": "server-suit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "server-suit.js",
   "scripts": {
-    "test": "jasmine"
+    "tests": "concurrently \"npm run unit\" \"npm run e2e\"",
+    "e2e": "testcafe chrome integration/server-test.js --app \"node example/server.js\"",
+    "unit": "jasmine"
   },
   "author": "Trevor Ranney",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  },
   "devDependencies": {
     "jasmine": "^3.3.1"
   }
