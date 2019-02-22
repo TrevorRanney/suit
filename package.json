@@ -6,13 +6,14 @@
   "scripts": {
     "tests": "concurrently \"npm run unit\" \"npm run e2e\"",
     "e2e": "testcafe chrome integration/server-test.js --app \"node example/server.js\"",
-    "unit": "jasmine"
+    "unit": "set NODE_V8_COVERAGE=coverage-jasmine && c8 jasmine"
   },
   "author": "Trevor Ranney",
   "dependencies": {
     "concurrently": "^4.1.0"
   },
   "devDependencies": {
+    "c8": "^3.4.0",
     "jasmine": "^3.3.1"
   }
 }
