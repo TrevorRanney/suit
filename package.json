@@ -1,19 +1,18 @@
 {
   "name": "server-suit",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "main": "server-suit.js",
   "scripts": {
     "tests": "concurrently \"npm run e2e\" \"npm run unit\" ",
-    "e2e": "testcafe chrome integration/server-test.js --app \"node example/server.js\"",
+    "e2e": "testcafe  chrome:headless integration/server-test.js --app \"node example/server.js\"",
     "unit": "set NODE_V8_COVERAGE=coverage-jasmine && c8 jasmine"
   },
   "author": "Trevor Ranney",
-  "dependencies": {
-    "concurrently": "^4.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "c8": "^3.5.0",
+    "concurrently": "^4.1.0",
     "jasmine": "^3.3.1"
   }
 }
