@@ -1,11 +1,16 @@
 
 var Suit = require('../../server-suit');
+
 var http = require('http');
 var net = require('net');
+
+var Logger = require('../../lib/logger');
+var logger = new Logger();
 
 describe( "The server", () => {
 
     beforeEach( () => {
+        spyOn(Logger.prototype,'logRequest');
         this.server = new Suit();
         this.serverAwasHit = false;
         this.serverBwasHit = false;
@@ -18,6 +23,7 @@ describe( "The server", () => {
     });
 
     it("responds to serverA request with serverA", () => {
+        
         var hostA = 'hostA';
         this.server.addHost(hostA,this.serverAHandler);
         var requestA = {};
