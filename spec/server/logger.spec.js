@@ -15,7 +15,7 @@ describe( "The logger", () => {
             logWritten = true; 
             callback("The line in code with append file will not be covered but everything else will. ;)")
         });
-        this.logger.logRequest("hi");
+        this.logger.logRequest({headers: {host: "hi", "x-forwarded-for": "test"}, method: "post-get-delete-put", url: "urls are sexy" } );
         expect(logWritten).toBe(true);
     });
 
