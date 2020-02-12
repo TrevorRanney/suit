@@ -1,5 +1,6 @@
 
 var http = require('http');
+var https = require('https');
 var Router = require('./lib/router')
 
 var handlers = {};
@@ -11,6 +12,7 @@ class Server{
     
     constructor(){
         this.httpPort = 80;
+        this.httpsPort = 443;
     }
 
     setLogger(loggingModule){
@@ -55,8 +57,8 @@ class Server{
         server.listen(this.httpPort, '0.0.0.0');
 
         //could for each through a range of ports or accociate port with server
-       // var server2 = http.createServer(this.handleRequest);
-       // server2.listen(443, '0.0.0.0');
+    //    var httpsServer = https.createServer(this.handleRequest);
+    //    httpsServer.listen(this.httpsPort, '0.0.0.0');
     }
 
     router(){
