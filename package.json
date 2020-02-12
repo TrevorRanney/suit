@@ -4,7 +4,7 @@
   "description": "",
   "main": "server-suit.js",
   "scripts": {
-    "tests": "concurrently \"npm run e2e\" \"npm run unit\" ",
+    "test": "concurrently \"npm run e2e\" \"npm run unit\" ",
     "e2e": "testcafe  chrome:headless integration/server-test.js --app \"node example/server.js\"",
     "unit": "set NODE_V8_COVERAGE=coverage-jasmine && c8 jasmine"
   },
