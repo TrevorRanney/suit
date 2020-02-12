@@ -3,14 +3,10 @@ var Proxy = require('../lib/proxy');
 
 var proxy = new Proxy('betterfoodorder.com', 80)
 var proxy2 = new Proxy('localhost', 8888)
-console.log(proxy2.getHost());
-// function serveStuff(request,response){
-//     response.end("HELLO WORLD");
-// }
 
-function serveDifferentStuff(request,response){
-    response.end("XD <3 XD");
-}
+
+
+console.log(proxy2.getHost());
 
 var server = new Suit();
 server.httpPort = 8002;
