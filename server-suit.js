@@ -10,8 +10,9 @@ var Router = require('./lib/router')
 class Server{
     
     constructor(){
+        this.noHostHandler;
         this.httpPort = 80;
-        this.httpsPort = 443;
+        // this.httpsPort = 443;
         this.handlers = {};
     }
 
@@ -19,9 +20,9 @@ class Server{
     //     logger = loggingModule;
     // }
 
-    // setNoHostHandler(noHostHandlerModule){
-    //     noHostHandler = noHostHandlerModule;
-    // }
+    setNoHostHandler(noHostHandlerModule){
+        this.noHostHandler = noHostHandlerModule;
+    }
 
     addHost(name, handler){
         this.handlers[name] = handler;
@@ -34,7 +35,7 @@ class Server{
     // }
 
     handleRequest(request, response){
-        console.log("handle request",this)
+        // console.log("handle request",this)
         //test
         // middleware.forEach( (middle) =>
         // {
@@ -48,9 +49,18 @@ class Server{
             if(handler.respond)handler.respond(request, response);
             else handler(request,response);
         }
-        // else {
-        //     if(noHostHandler)noHostHandler(request, response);
-        // }
+        else 
+        {
+            if(this.noHostHandler)
+            {
+                if(this.noHostHandler.respond)this.noHostHandler.respond(request, response);
+                else this.noHostHandler(request,response);
+            }
+            else{
+                console.log("no server to response to", host)
+                console.log("possible options:",  this.handlers)
+            }
+        }
     }
 
     start(){
@@ -62,8 +72,8 @@ class Server{
     //    httpsServer.listen(this.httpsPort, '0.0.0.0');
     }
 
-    router(){
-        return Router;
+    newRouter(name){
+        return new Router(name);
     }
 
 }
