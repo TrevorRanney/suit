@@ -66,7 +66,7 @@ class Server{
     start(){
         var server = http.createServer(this.handleRequest.bind(this));
         server.listen(this.httpPort, '0.0.0.0');
-        console.log("server",this);
+        // console.log("server",this);
         //could for each through a range of ports or accociate port with server
     //    var httpsServer = https.createServer(this.handleRequest);
     //    httpsServer.listen(this.httpsPort, '0.0.0.0');
