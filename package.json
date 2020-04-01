@@ -1,0 +1,19 @@
+{
+  "name": "server-suit",
+  "version": "1.0.8",
+  "description": "",
+  "main": "server-suit.js",
+  "scripts": {
+    "test": "concurrently \"npm run e2e\" \"npm run unit\" ",
+    "e2e": "testcafe  chrome:headless integration/server-test.js --app \"node example/router/routerExample.js\"",
+    "unit": "set NODE_V8_COVERAGE=coverage-jasmine && c8 jasmine"
+  },
+  "author": "Trevor Ranney",
+  "dependencies": {},
+  "devDependencies": {
+    "c8": "7.1.0",
+    "concurrently": "5.1.0",
+    "jasmine": "3.5.0",
+    "testcafe": "1.8.1"
+  }
+}
