@@ -23,12 +23,16 @@ describe( "The router", () => {
 
     it("serve: ends the response and return a 404 on an invalid route", () => {
         var result = "";
+        var resultStatus = "";
+        var resultHeaders = "";
         var response = {};
+        response.writeHead = (status, headers) => { resultStatus = status, resultHeaders = headers}; 
         response.end = (status) => { result = status}; 
         var request = {};
         request.url = "invalidURL"
         this.router.serve(request, response);
         expect(result).toBe("404");
+        expect(resultStatus).toBe(404);
     });
 
 });

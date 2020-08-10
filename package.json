@@ -1,7 +1,7 @@
 {
   "name": "server-suit",
-  "version": "1.0.8",
-  "description": "",
+  "version": "1.0.10",
+  "description": "Tool to run multiple hosts on a single IP",
   "main": "server-suit.js",
   "scripts": {
     "test": "concurrently \"npm run e2e\" \"npm run unit\" ",
