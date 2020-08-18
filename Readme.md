@@ -5,7 +5,7 @@
 * Explicitly serves files
 * Interpolates javascript objects into html variables on the server side
 
-[Check out this example for server side html with variables](.\example\complex-data)
+[Check out this example for server side html with variables](/example/complex-data)
 
 ```
 var Suit = require('server-suit');
