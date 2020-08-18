@@ -1,10 +1,10 @@
 var Suit = require('../server-suit');
 
-function serveStuff(request,response){
+serveStuff = (request,response) => {
     response.end("HELLO WORLD");
 }
 
-function serveDifferentStuff(request,response){
+serveDifferentStuff = (request,response) => {
     response.end("XD <3 XD");
 }
 

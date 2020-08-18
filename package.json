@@ -6,7 +6,9 @@
   "scripts": {
     "test": "concurrently \"npm run e2e\" \"npm run unit\" ",
     "e2e": "testcafe  chrome:headless integration/server-test.js --app \"node example/router/routerExample.js\"",
-    "unit": "set NODE_V8_COVERAGE=coverage-jasmine && c8 jasmine"
+    "unit": "set NODE_V8_COVERAGE=coverage-jasmine && c8 jasmine",
+    "router-example": "node example/router/routerExample.js",
+    "complex-example": "node example/complex-data/complex-example.js"
   },
   "author": "Trevor Ranney",
   "dependencies": {},

@@ -1,19 +1,22 @@
 
 # 🕴️ Server Suit 🕴️
 
-This is a set of tools to run manys hosts on a single IP address
+* Runs many hosts on a single IP address
+* Explicitly serves files
+* Interpolates javascript objects into html variables on the server side
 
+[Check out this example for server side html with variables](.\example\complex-data)
 
 ```
 var Suit = require('server-suit');
 
 var server = new Suit();
 
-function serveStuff(request,response){
+serveStuff = (request,response) => {
     response.end("HELLO WORLD");
 }
 
-function serveDifferentStuff(request,response){
+serveDifferentStuff = (request,response) => {
     response.end("XD <3 XD");
 }
 
