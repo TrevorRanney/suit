@@ -22,6 +22,8 @@ serveDifferentStuff = (request,response) => {
 
 var router = server.newRouter('testRouter');
 router.addRoute('/', serveDifferentStuff);
+router.addRoute('/file', "this/could/be/a/path/to/a/file");
+router.addRoute('/variables', 'variables.html', {variables} );
 
 server.httpPort = 8888;
 server.addHost("localhost:8888", serveStuff); 
