@@ -22,7 +22,11 @@ serveDifferentStuff = (request,response) => {
 
 var router = server.newRouter('testRouter');
 router.addRoute('/', serveDifferentStuff);
+
 router.addRoute('/file', "this/could/be/a/path/to/a/file");
+var variables = { thing: { stuff: ['XD']}, thing2: "thing2" };
+//<div>${variables.things.stuff[0]} </div> <--found in variables.html
+//will apear as <div>XD</div> to the client
 router.addRoute('/variables', 'variables.html', {variables} );
 
 server.httpPort = 8888;
