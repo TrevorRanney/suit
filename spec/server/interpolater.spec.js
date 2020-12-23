@@ -12,4 +12,13 @@ describe( "The interpolater", () => {
         expect(interpolate("${car.body.seats}", {car})).toBe("drivers");
     });
 
+    it("can parse simple object", () => {
+        var vids = ["A","B"];
+        var user = {
+            name: "Test",
+            videos: vids
+        };
+        expect(interpolate("$user.videos",user)).toBe(vids);
+    });
+
 });
