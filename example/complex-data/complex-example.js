@@ -10,7 +10,7 @@ var complexVariable = {
 };
 
 var router = server.newRouter('complexe data router');
-// router.setBaseRoute('./example/complex-data');
+router.setBaseRoute('./example/complex-data');
 router.addRoute('/', 'complex.html', complexVariable );
 
 server.addHost("localhost:4567", router.serve); 

@@ -7,6 +7,7 @@
 
 [Check out this example for server side html with variables](/example/complex-data)
 
+## Code example:
 ```
 var Suit = require('server-suit');
 
@@ -34,4 +35,20 @@ server.addHost("localhost:8888", serveStuff);
 server.addHost("127.0.0.1:8888", router.serve);
 
 server.start();
+```
+
+## Running the server
+Download this repo and run these commands to see examples of the server.  
+This server require no packagesto run just node! (Last tested on v14.15.3)
+```
+npm run router-example
+ - localhost:3456
+npm run complex-example
+ - localhost:4567
+```
+
+## Running tests
+```
+npm i
+npm test
 ```
