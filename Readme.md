@@ -7,6 +7,11 @@
 
 [Check out this example for server side html with variables](/example/complex-data)
 
+### Install:
+``` 
+npm i server-suit 
+```
+
 ## Code example:
 ```
 var Suit = require('server-suit');
