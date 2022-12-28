@@ -1,7 +1,7 @@
 
 var http = require('http');
 var Router = require('./lib/router')
-
+var HttpProxy = require('./lib/http-proxy')
 
 
 class Server{
@@ -11,6 +11,7 @@ class Server{
         this.httpPort = 80;
         this.handlers = {};
         this.logger = null;
+        this.wellKnownHandler;
     }
 
     setLogger(loggingModule){
@@ -25,11 +26,19 @@ class Server{
         this.handlers[name] = handler;
     }
 
+    addCertifcateRenewalServer(ip, port){
+        this.wellKnownHandler = new HttpProxy(ip, port)
+    }
+
     handleRequest(request, response){
         var host = request.headers.host;
         var handler = this.handlers[host];
         if(this.logger)this.logger(request);
-        if(handler)
+        if(request.url.toLocaleLowerCase().includes('.well-known') && this.wellKnownHandler)
+        {
+            this.wellKnownHandler.respond(request, response)
+        }
+        else if(handler)
         {
             if(handler.respond)handler.respond(request, response);
             else handler(request,response);
