@@ -17,7 +17,7 @@
     "c8": "^7.10.0",
     "concurrently": "^6.4.0",
     "jasmine": "^3.10.0",
-    "testcafe": "^1.17.1"
+    "testcafe": "^15.1.317922"
   },
   "repository": {
     "type": "git",
