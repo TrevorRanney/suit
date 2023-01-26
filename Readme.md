@@ -1,11 +1,13 @@
 
 # 🕴️ Server Suit 🕴️
-
 * Runs many hosts on a single IP address
 * Explicitly serves files
-* Interpolates javascript objects into html variables on the server side
+* Interpolates javascript objects into html variables on the server side  
+[Check out this example for server side html with variables](/example/complex-data)  
 
-[Check out this example for server side html with variables](/example/complex-data)
+Master branch contains code for version 2.0 (coming soon: added components, forloops, more complex variables, and forward to certificate server) 
+
+Version 1.0.10 is in production - https://www.npmjs.com/package/server-suit
 
 ### Install:
 ``` 
@@ -30,7 +32,7 @@ var router = server.newRouter('testRouter');
 router.addRoute('/', serveDifferentStuff);
 
 router.addRoute('/file', "this/could/be/a/path/to/a/file");
-var variables = { thing: { stuff: ['XD']}, thing2: "thing2" };
+var variables = { things: { stuff: ['XD']}, thing2: "thing2" };
 //<div>${variables.things.stuff[0]} </div> <--found in variables.html
 //will apear as <div>XD</div> to the client
 router.addRoute('/variables', 'variables.html', {variables} );
@@ -44,7 +46,7 @@ server.start();
 
 ## Running the server
 Download this repo and run these commands to see examples of the server.  
-This server require no packagesto run just node! (Last tested on v14.15.3)
+This server requires no packages to run just node!
 ```
 npm run router-example
  - localhost:3456
@@ -53,6 +55,12 @@ npm run complex-example
 ```
 
 ## Running tests
+The tests dependes on these packages to run:  
+    "c8": "^7.10.0",   
+    "concurrently": "^6.4.0",  
+    "jasmine": "^3.10.0",  
+    "testcafe": "^1.17.1"  
+    
 ```
 npm i
 npm test

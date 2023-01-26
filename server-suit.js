@@ -3,12 +3,11 @@ var http = require('http');
 var Router = require('./lib/router')
 var HttpProxy = require('./lib/http-proxy')
 
-
 class Server{
     
-    constructor(){
+    constructor(port){
         this.noHostHandler;
-        this.httpPort = 80;
+        this.httpPort = port || 80;
         this.handlers = {};
         this.logger = null;
         this.wellKnownHandler;
@@ -34,7 +33,7 @@ class Server{
         var host = request.headers.host;
         var handler = this.handlers[host];
         if(this.logger)this.logger(request);
-        if(request.url.toLocaleLowerCase().includes('.well-known') && this.wellKnownHandler)
+        if(request.url && request.url.toLocaleLowerCase().includes('.well-known') && this.wellKnownHandler)
         {
             this.wellKnownHandler.respond(request, response)
         }
