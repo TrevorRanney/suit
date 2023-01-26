@@ -55,13 +55,14 @@ npm run complex-example
 ```
 
 ## Running tests
-The tests dependes on these packages to run:  
+The tests dependes on these packages to run: (It seems that testcafe has to be install independently from npm i, ¯\\\_(ツ)\_/¯ )  
     "c8": "^7.10.0",   
     "concurrently": "^6.4.0",  
     "jasmine": "^3.10.0",  
-    "testcafe": "^1.17.1"  
+    "testcafe": "1.17.1"
     
 ```
 npm i
+npm i testcafe@1.17.1
 npm test
 ```
