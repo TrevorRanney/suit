@@ -1,5 +1,7 @@
 
 var Suit = require('../../server-suit');
+var router = require('../../lib/router');
+var router2 = require('../../lib/router2')('router2');
 
 describe( "The router", () => {
 
@@ -102,5 +104,16 @@ describe( "The router", () => {
         expect(resultHeaders).toEqual({ 'Content-Type': 'text/css' });
     });
 
+    it("router can do regex", () => {
+        var testCalled = false
+        var request = {}
+        var response = {}
+        request.url = "testUrl2"
+        var test2Function = () => { testCalled = true }
+        router2.addRoute(/.*2/g, test2Function)
+        router2.serve(request, response)
+
+        expect(testCalled).toBe(true)
+    });
 
 });
