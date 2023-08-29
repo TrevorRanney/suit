@@ -55,10 +55,10 @@ npm run complex-example
 ```
 
 ## Running tests
-The tests dependes on these packages to run: (It seems that testcafe has to be install independently from npm i, ¯\\\_(ツ)\_/¯ )  
-    "c8": "^7.10.0" <-- code coverage  
+The tests dependes on these packages to run  
+    "c8": "^7.10.0" <-- code coverage (for unit tests)  
     "jasmine": "^3.10.0" <-- unit tests  
-    "testcafe": "1.17.1" <-- browser integration tests  
+    "testcafe": "^3.3.0" <-- browser integration tests  
     "concurrently": "^6.4.0" <-- running all tests together  
     
 ```
@@ -71,7 +71,7 @@ Run just the unit test
 npm run unit
 ```
 
-Run just the integration tests
+Run just the e2e tests
 ```
 npm run e2e
 ```

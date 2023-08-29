@@ -12,12 +12,12 @@
     "jas": "jasmine"
   },
   "author": "Trevor Ranney",
-  "dependencies": {},
   "devDependencies": {
     "c8": "^7.10.0",
     "concurrently": "^6.4.0",
     "jasmine": "^3.10.0",
-    "testcafe": "^15.1.317922"
+    "testcafe": "^3.3.0"
+
   },
   "repository": {
     "type": "git",
