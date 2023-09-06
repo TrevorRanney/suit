@@ -3,11 +3,8 @@
 * Runs many hosts on a single IP address
 * Explicitly serves files
 * Interpolates javascript objects into html variables on the server side  
-[Check out this example for server side html with variables](/example/complex-data)  
-
-Master branch contains code for version 2.0 (coming soon: added components, forloops, more complex variables, and forward to certificate server) 
-
-Version 1.0.10 is in production - https://www.npmjs.com/package/server-suit
+[Check out this example for server side html with variables](/example/complex-data) 
+* Load components 
 
 ### Install:
 ``` 
@@ -33,18 +30,22 @@ router.addRoute('/', serveDifferentStuff);
 
 router.addRoute('/file', "this/could/be/a/path/to/a/file");
 var variables = { things: { stuff: ['XD']}, thing2: "thing2" };
-//<div>${variables.things.stuff[0]} </div> <--found in variables.html
-//will apear as <div>XD</div> to the client
 router.addRoute('/variables', 'variables.html', {variables} );
+// HTML file: <div>{{variables.things.stuff[0]}}</div>
+// will apear as <div>XD</div> to the client
 
-server.httpPort = 8888;
-server.addHost("localhost:8888", serveStuff); 
-server.addHost("127.0.0.1:8888", router.serve);
+server.httpPort = 8888;  
+server.addHost("localhost:8888", serveStuff);  
+server.addHost("127.0.0.1:8888", router.serve);    
+
 
 server.start();
 ```
+## Components
+Components can be loaded in an html file like this:
+``` [[/path-to-file.html]] ```
 
-## Running the server
+## Running the example servers
 Download this repo and run these commands to see examples of the server.  
 This server requires no packages to run just node!
 ```
@@ -56,14 +57,13 @@ npm run complex-example
 
 ## Running tests
 The tests dependes on these packages to run  
-    "c8": "^7.10.0" <-- code coverage (for unit tests)  
-    "jasmine": "^3.10.0" <-- unit tests  
-    "testcafe": "^3.3.0" <-- browser integration tests  
-    "concurrently": "^6.4.0" <-- running all tests together  
+    c8  
+    jasmine  
+    testcafe  
+    concurrently
     
 ```
 npm i
-npm i testcafe@1.17.1
 npm test
 ```
 Run just the unit test

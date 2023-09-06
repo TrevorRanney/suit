@@ -4,13 +4,13 @@ var Suit = require('../../server-suit');
 var http = require('http');
 var net = require('net');
 
-var Logger = require('../../lib/logger');
-var logger = new Logger();
+// var Logger = require('../../lib/logger');
+// var logger = new Logger();
 
 describe( "The server", () => {
 
     beforeEach( () => {
-        spyOn(Logger.prototype,'logRequest');
+        // spyOn(Logger.prototype,'logRequest');
         this.server = new Suit();
         this.serverAwasHit = false;
         this.serverBwasHit = false;
@@ -125,5 +125,19 @@ describe( "The server", () => {
         this.server.start();
         expect(http.createServer).toHaveBeenCalled();
     });
+
+    it('can add a route to renew lets encrypt certificates', () => {
+        var pipedToResponse = false
+        const request = { url:'.well-known', headers:{}, pipe:()=>{pipedToResponse=true} }
+        const response = {}
+        this.server.addCertificateRenewalServer('127.0.0.1', 80)
+        this.server.handleRequest(request,response)
+        expect(pipedToResponse).toBeTrue()
+    })
+
+    it('can create a router', ()=> {
+        const aTestRouter = this.server.newRouter('testRouter')
+        expect(aTestRouter._name).toBe('testRouter')
+    })
 
 });

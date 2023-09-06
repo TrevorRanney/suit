@@ -1,6 +1,5 @@
 
 var http = require('http');
-var Router = require('./lib/router')
 var HttpProxy = require('./lib/http-proxy')
 
 class Server{
@@ -25,7 +24,7 @@ class Server{
         this.handlers[name] = handler;
     }
 
-    addCertifcateRenewalServer(ip, port){
+    addCertificateRenewalServer(ip, port){
         this.wellKnownHandler = new HttpProxy(ip, port)
     }
 
@@ -62,7 +61,7 @@ class Server{
     }
 
     newRouter(name){
-        return new Router(name);
+        return require('./lib/router')(name)
     }
 
 }
