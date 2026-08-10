@@ -7,7 +7,7 @@ describe( "The proxy", () => {
         this.proxy = new HttpProxy('localhost',6014);
     });
 
-    it("can get the host", () => {
+    it("can get the host on a new proxy", () => {
         const host = this.proxy.getHost()
         expect(host).toEqual('localhost');
     });

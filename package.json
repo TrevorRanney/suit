@@ -15,7 +15,7 @@
   "devDependencies": {
     "c8": "^8.0.1",
     "concurrently": "^8.2.1",
-    "jasmine": "^5.1.0",
+    "jasmine": "^6.3.0",
     "testcafe": "^3.3.0"
   },
   "repository": {

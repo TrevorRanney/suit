@@ -93,7 +93,7 @@ describe( "The router unit tests", () => {
         // expect( stat ).toBe(200)
     });
 
-    it("can set base url path", () => {
+    it("can set base url path and return a successful response", () => {
         var helloWorldHTML = ''
         var status
         router.setBaseRoute(process.cwd()+ '/example/router/')
